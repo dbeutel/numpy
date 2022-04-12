@@ -2002,6 +2002,11 @@ class TestUfunc:
         # Test multiple output ufuncs raise error, gh-5665
         assert_raises(ValueError, np.modf.at, np.arange(10), [1])
 
+        # Test ufuncs with non-trivial signature raise a TypeError
+        a = np.ones((2, 2, 2))
+        b = np.ones((1, 2, 2))
+        assert_raises(TypeError, np.matmul.at, a, [0], b)
+
     def test_reduce_arguments(self):
         f = np.add.reduce
         d = np.ones((5,2), dtype=int)
