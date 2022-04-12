@@ -5890,8 +5890,7 @@ ufunc_at(PyUFuncObject *ufunc, PyObject *args)
 
     if (ufunc->core_enabled) {
         PyErr_Format(PyExc_TypeError,
-                     "method at is not allowed in ufunc with non-trivial"\
-                     " signature");
+            "method at is not allowed in ufunc with non-trivial signature");
         return NULL;
     }
 
